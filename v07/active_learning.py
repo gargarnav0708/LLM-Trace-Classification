@@ -39,7 +39,7 @@ def rank_residual_sessions(sessions, labels, classifier, seed=7):
     if not training:
         return [{"session":s,"session_id":s["trace_id"],"information_score":0.0} for s in sessions]
     train_text=[HierarchicalClassifier._text(x) for x in training]
-    candidate_text=[HierarchicalClassifier._text(x) for x in sessions]
+    candidate_text=[HierarchicalClassifier._text(s) for s in sessions]
     vectorizer=TfidfVectorizer(ngram_range=(1,2),min_df=1,sublinear_tf=True,max_features=50000)
     matrix=vectorizer.fit_transform(train_text+candidate_text)
     sims=cosine_similarity(matrix[len(training):],matrix[:len(training)])
