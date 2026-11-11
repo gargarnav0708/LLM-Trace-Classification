@@ -1,0 +1,16 @@
+.env
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+
+# Local inputs, generated reports, and resumable annotation/cache data
+*.parquet
+*.pq
+output/
+run_output/
+live_output*/
+work/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
